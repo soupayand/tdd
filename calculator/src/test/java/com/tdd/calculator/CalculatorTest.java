@@ -43,9 +43,19 @@ public class CalculatorTest {
 		assertEquals(6, calculator.add("//;\n1;2;3"));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testNegativeNumbers() {
 		assertEquals(6, calculator.add("//;\n-1;-2;3"));
+	}
+
+	@Test
+	public void testMultipleDelimiters() {
+		assertEquals(6, calculator.add("//[;][$]\n1;2$3"));
+	}
+
+	@Test
+	public void testLengthDelimiters() {
+		assertEquals(6, calculator.add("//[$$$][;]\n1;2$$$3"));
 	}
 
 }
