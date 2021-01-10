@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.calculator;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,7 +34,6 @@ public class CalculatorTest {
 		assertEquals(0, calculator.add(""));
 		assertEquals(1, calculator.add("1"));
 		assertEquals(3, calculator.add("1,2"));
-		assertEquals(6, calculator.add("1\n2,3"));
 	}
 
 }
