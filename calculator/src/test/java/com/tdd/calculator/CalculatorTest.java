@@ -43,7 +43,7 @@ public class CalculatorTest {
 		assertEquals(6, calculator.add("//;\n1;2;3"));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testNegativeNumbers() {
 		assertEquals(6, calculator.add("//;\n-1;-2;3"));
 	}
