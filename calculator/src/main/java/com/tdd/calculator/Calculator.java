@@ -13,8 +13,15 @@ public class Calculator {
 				input = segments[1];
 			}
 			String[] numbers = input.split("[\n" + delimiters + "]");
+			String negativeNumbers = "";
 			for (String number : numbers) {
 				int num = Integer.parseInt(number);
+				if (num < 0) {
+					negativeNumbers = negativeNumbers + "," + number;
+				}
+				if (!negativeNumbers.isEmpty()) {
+					throw new IllegalArgumentException("Negatives not allowed : " + negativeNumbers);
+				}
 				sum = sum + num;
 			}
 		}

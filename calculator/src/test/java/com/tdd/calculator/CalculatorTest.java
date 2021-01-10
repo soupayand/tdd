@@ -1,6 +1,7 @@
 package com.tdd.calculator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -35,7 +36,16 @@ public class CalculatorTest {
 		assertEquals(1, calculator.add("1"));
 		assertEquals(3, calculator.add("1,2"));
 		assertEquals(6, calculator.add("1\n2,3"));
+	}
+
+	@Test
+	public void testRandomDelimiters() {
 		assertEquals(6, calculator.add("//;\n1;2;3"));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testNegativeNumbers() {
+		assertEquals(6, calculator.add("//;\n-1;-2;3"));
 	}
 
 }
